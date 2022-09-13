@@ -25,7 +25,7 @@ class SdmService:
         try:
             # TODO: Refactor - extract code
             role_name = "removeme"
-            roles = list(self.__client.roles.find(f"name:{role_name}", timeout=30))
+            roles = list(self.__client.roles.list(f"name:{role_name}", timeout=30))
 
             self.__log.debug("##SDM## SdmService.create_account")
             account = strongdm.Service(name=name)
