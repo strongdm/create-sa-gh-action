@@ -1,0 +1,32 @@
+name: 'SDM Create Service Account GH Action'
+description: 'Create a SDM Service Account'
+inputs:
+  run-id:
+    description: 'Github Action Workflow run id'
+    required: true
+  random-key-job-name:
+    description: 'Workflow Job name responsible for printing the random UUID (v4) key in the format "###random_access_key=RANDOM_UUID_KEY###"'
+    required: true
+  random-key:
+    description: 'Random Access Key'
+    required: true
+  secret:
+    description: 'Shared Secret'
+    required: true
+  server-host:
+    description: 'Proxy host address'
+    required: true
+outputs:
+  account-id:
+    description: Temporary Service Account ID
+  temp-token:
+    description: Temporary Service Account Token
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    RUN_ID: ${{ inputs.run-id }}
+    RANDOM_KEY_JOB_NAME: ${{ inputs.random-key-job-name }}
+    RANDOM_KEY: ${{ inputs.random-key }}
+    SECRET: ${{ inputs.secret }}
+    SERVER_HOST: ${{ inputs.server-host }}
