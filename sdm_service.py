@@ -36,7 +36,7 @@ class SdmService:
                 account_id=response.account.id,
                 role_id=roles[0].id
             )
-            client.account_attachments.create(grant, timeout=30)            
+            self.__client.account_attachments.create(grant, timeout=30)            
         except Exception as ex:
             raise Exception("Create account failed: " + str(ex)) from ex
         return response.account, response.token
